@@ -2,17 +2,36 @@
 angular.module("starter.services", [])
 
   .factory("Auth", function($http, SERVER){
-    // post potential user to server which will determine if legit
-    var signin = function (user) {
-        return $http({
-          method: "POST",
-          url: SERVER.url + "/user/signin",
-          data: user
-        })
-        .then(function (resp) {
-          return resp.data;
-        });
+   
+    // use oauth.io to get user's access token for google calendar;
+    var signin = function() {
+      var config = {
+        'client_id': '989969156266-814fcdt9cht50r842r0serpo6b6ol6nm',
+        'scope': 'https://www.googleapis.com/auth/calendar',
+        'immediate': false
       };
+      return gapi.auth.authorize(config);    
+    };
+
+    var checkAuth = function() {
+      var config = {
+        'client_id': '989969156266-814fcdt9cht50r842r0serpo6b6ol6nm',
+        'scope': 'https://www.googleapis.com/auth/calendar',
+        'immediate': true
+      };
+      return gapi.auth.authorize(config);   
+    }
+    // post potential user to server which will determine if legit
+    // var signin = function (user) {
+    //     return $http({
+    //       method: "POST",
+    //       url: SERVER.url + "/user/signin",
+    //       data: user
+    //     })
+    //     .then(function (resp) {
+    //       return resp.data;
+    //     });
+    //   };
 
     // post new user to server which will set up new account
     var signup = function (user) {
@@ -25,6 +44,7 @@ angular.module("starter.services", [])
         return resp.data;
       });
     };
+
 
     // var refreshUser = function (){
     //   return $http({

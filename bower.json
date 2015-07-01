@@ -21,6 +21,7 @@
     "ionic-service-deploy": "~0.0.6"
   },
   "dependencies": {
-    "ionic-contrib-tinder-cards": "*"
+    "ionic-contrib-tinder-cards": "*",
+    "oauth-js": "~0.4.3"
   }
 }
