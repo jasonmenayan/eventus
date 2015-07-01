@@ -2,7 +2,6 @@
 angular.module("starter.services", [])
 
   .factory("Auth", function($http, SERVER){
-   
     // use oauth.io to get user's access token for google calendar;
     var signin = function() {
       var config = {
@@ -20,7 +19,7 @@ angular.module("starter.services", [])
         'immediate': true
       };
       return gapi.auth.authorize(config);   
-    }
+    };
     // post potential user to server which will determine if legit
     // var signin = function (user) {
     //     return $http({
@@ -34,16 +33,16 @@ angular.module("starter.services", [])
     //   };
 
     // post new user to server which will set up new account
-    var signup = function (user) {
-      return $http({
-        method: "POST",
-        url: SERVER.url + "/user/signup",
-        data: user
-      })
-      .then(function (resp) {
-        return resp.data;
-      });
-    };
+    // var signup = function (user) {
+    //   return $http({
+    //     method: "POST",
+    //     url: SERVER.url + "/user/signup",
+    //     data: user
+    //   })
+    //   .then(function (resp) {
+    //     return resp.data;
+    //   });
+    // };
 
 
     // var refreshUser = function (){
@@ -55,9 +54,34 @@ angular.module("starter.services", [])
 
     return {
       signin: signin,
-      signup: signup
+      checkAuth: checkAuth
       // refreshUser: refreshUser
     };
+  })
+  
+  .factory('Gcal', function(Auth) {
+    var event = {
+      calendarId: 'primary',
+      description: 'group meditation',
+      start: {dateTime: '2015-07-04T10:00:00Z'},
+      end: {dateTime: '2015-07-04T11:00:00Z'},
+      organizer: {displayName: 'Hack Reactor Tea Party'}
+    };
+    var sendToGcal = function(event) {
+      gapi.client.load('calendar', 'v3')
+      .then(function() {
+        gapi.client.calendar.events.insert(event)
+        .execute(function(response) {
+          console.log(response);
+        })
+      })
+      
+    };
+    return {
+      sendToGcal: sendToGcal,
+      event: event
+    };
+
   })
 
   .factory("Account", function(){

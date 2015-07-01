@@ -7,7 +7,7 @@ angular.module("starter.auth", [])
   $scope.signin = function () {
     Auth.signin()
       .then(function (authResult) {
-        console.log(result);
+        console.log(authResult);
         $rootScope.currentUser = authResult;
         $location.path("/app/main");
       })
@@ -33,20 +33,20 @@ angular.module("starter.auth", [])
   // };
 
   // sign up, add token to localStorage and sets current user in $rootScope
-  $scope.signup = function () {
-    Auth.signup($scope.user)
-      .then(function (data) {
-        $window.localStorage.setItem("com.starter", data.token);
-        $rootScope.currentUser = {
-          username: data.userInfo.username,
-          id: data.userInfo._id
-        };
-        $location.path("/app/main");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  // $scope.signup = function () {
+  //   Auth.signup($scope.user)
+  //     .then(function (data) {
+  //       $window.localStorage.setItem("com.starter", data.token);
+  //       $rootScope.currentUser = {
+  //         username: data.userInfo.username,
+  //         id: data.userInfo._id
+  //       };
+  //       $location.path("/app/main");
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
 
   // signout by removing token from localStorage and removing current user in $rootScope
   $scope.signout = function () {
