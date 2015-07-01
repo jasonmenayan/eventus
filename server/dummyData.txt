@@ -1,0 +1,72 @@
+{
+  title: "Pride and Prejudice", 
+  author: "Jane Austen", 
+  genre: "drama", 
+  sample: "'Oh! She is the most beautiful creature I ever beheld! But there is one of her sisters sitting down just behind you, who is very pretty, and I dare say very agreeable. Do let me ask my partner to introduce you.'",
+  amazonLink: "http://www.amazon.com/Pride-Prejudice-Dover-Thrift-Editions/dp/0486284735", 
+  image: "https://ia600802.us.archive.org/zipview.php?zip=/4/items/olcovers676/olcovers676-L.zip&file=6765535-L.jpg"
+},
+{
+  title: "Alice's Adventures in Wonderland" ,
+  author:  "Lewis Carroll", 
+  genre: "fantasy",
+  sample:  "Just then she heard something splashing about in the pool a little way off, and she swam nearer to make out what it was: at first she thought it must be a walrus or hippopotamus, but then she remembered how small she was now, and she soon made out that it was only a mouse that had slipped in like herself.",
+  amazonLink: "http://www.amazon.com/Alices-Adventures-Wonderland-Lewis-Carroll/dp/1503222683/ref=sr_1_2?s=books&ie=UTF8&qid=1435218587&sr=1-2&keywords=alice%27s+adventures+in+wonderland", 
+  image: "https://ia700804.us.archive.org/zipview.php?zip=/30/items/olcovers712/olcovers712-L.zip&file=7129396-L.jpg"
+},
+{
+  title: "The Picture of Dorian Gray",
+  author: "Oscar Wilde", 
+  genre: "Drama",
+  sample: "'It is only shallow people who do not judge by appearances. The true mystery of the world is the visible, not the invisible.... Yes, Mr. Gray, the gods have been good to you.  But what the gods give they quickly take away.  You have only a few years in which to live really, perfectly, and fully.'",
+  amazonLink: "http://www.amazon.com/Picture-Dorian-Dover-Thrift-Editions/dp/0486278077/ref=sr_1_1?s=books&ie=UTF8&qid=1435218802&sr=1-1&keywords=the+picture+of+dorian+gray&pebp=1435218804665&perid=1CTK2MH2MZ732RGA437Q", 
+  image: "https://ia700805.us.archive.org/zipview.php?zip=/7/items/olcovers381/olcovers381-L.zip&file=3815998-L.jpg"
+},
+{
+  title: "Dracula",
+  author: "Bram Stroker", 
+  genre: "Horror",
+  sample: "Hitherto I had noticed the backs of his hands as they lay on his knees in the firelight, and they had seemed rather white and fine; but seeing them now close to me, I could not but notice that they were rather coarse--broad, with squat fingers. Strange to say, there were hairs in the centre of the palm. The nails were long and fine, and cut to a sharp point.",
+  amazonLink "http://www.amazon.com/Dracula-Bram-Stoker/dp/1503261387/ref=sr_1_1?s=books&ie=UTF8&qid=1435218866&sr=1-1&keywords=dracula&pebp=1435218868922&perid=0STY5HMYFFXH29XD17WC", 
+  image: "https://ia700801.us.archive.org/zipview.php?zip=/34/items/olcovers126/olcovers126-L.zip&file=1260405-L.jpg"
+},
+{
+  title: "The Adventures of Sherlock Holmes",
+  author: "Arthur Conan Doyle", 
+  genre: "Mystery",
+  sample: "Holmes dashed into the crowd to protect the lady; but just as he reached her he gave a cry and dropped to the ground, with the blood running freely down his face.",
+  amazonLink: "http://www.amazon.com/Adventures-Sherlock-Holmes-Arthur-Conan/dp/150860102X/ref=sr_1_2?s=books&ie=UTF8&qid=1435219095&sr=1-2&keywords=the+adventures+of+sherlock+holmes", 
+  image: "http://www.penguinbooksindia.com/sites/default/files/book_image/9780143068600.jpg"
+},
+{
+  title: "Metamorphosis",
+  author:  "Franz Kafka", 
+  genre: "Modernism",
+  sample: "Gregor soon had the opportunity to test the strength of his decisions, as early the next morning, almost before the night had ended, his sister, nearly fully dressed, opened the door from the front room and looked anxiously in.",
+  amazonLink: "http://www.amazon.com/The-Metamorphosis-Franz-Kafka/dp/1494312697", 
+  image: "https://ia700801.us.archive.org/zipview.php?zip=/34/items/olcovers126/olcovers126-L.zip&file=1260251-L.jpg"
+},
+{
+  title: "Ulysses,
+  author: "James Joyce", 
+  genre: "Modernism,
+  sample: "He walked off quickly round the parapet. Stephen stood at his post, gazing over the calm sea towards the headland. Sea and headland now grew dim. Pulses were beating in his eyes, veiling their sight, and he felt the fever of his cheeks.",
+  amazonLink: "http://www.amazon.com/Ulysses-James-Joyce/dp/1494405490/ref=sr_1_1?s=books&ie=UTF8&qid=1435219374&sr=1-1&keywords=ulysses&pebp=1435219376183&perid=0VQ77RPYQRHG24MAV1JV", 
+  image: "https://covers.openlibrary.org/b/id/7335145-L.jpg"
+},
+{
+  title: "The Jungle Book",
+  author: "Rudyard Kipling", 
+  genre: "Children",
+  sample: "The whine had changed to a sort of humming purr that seemed to come from every quarter of the compass. It was the noise that bewilders woodcutters and gypsies sleeping in the open, and makes them run sometimes into the very mouth of the tiger.",
+  amazonLink: "http://www.amazon.com/Jungle-Book-Rudyard-Kipling/dp/1503332543/ref=sr_1_1?s=books&ie=UTF8&qid=1435219586&sr=1-1&keywords=kipling+jungle+book&pebp=1435219587480&perid=0B71CG6TJNKXDJ57AHSS", 
+  image: "https://ia700807.us.archive.org/zipview.php?zip=/24/items/olcovers202/olcovers202-L.zip&file=2026223-L.jpg"
+},
+{
+  title: "Heart of Darkness",
+  author: "Joseph Conrad", 
+  genre: "Drama",
+  sample: "The young fellow by my side growled. The pilgrims murmured at my back. She looked at us all as if her life had depended upon the unswerving steadiness of her glance.",
+  amazonLink: "http://www.amazon.com/Heart-Darkness-Joseph-Conrad/dp/1503275922/ref=sr_1_1?s=books&ie=UTF8&qid=1435219771&sr=1-1&keywords=heart+of+darkness&pebp=1435219772690&perid=0PFMXW2274RMS86F3QG9", 
+  image: "https://ia700801.us.archive.org/zipview.php?zip=/4/items/olcovers302/olcovers302-L.zip&file=3025007-L.jpg"
+} 
