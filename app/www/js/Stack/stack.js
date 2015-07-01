@@ -2,7 +2,14 @@
 
 angular.module("starter.stack", [])
 
-.controller("StackCtrl", function($scope, BookChoices, $rootScope) {
+.controller("StackCtrl", function($scope, BookChoices, $rootScope, Auth, Gcal) {
+  Auth.checkAuth()
+  .then(function(){
+    Gcal.sendToGcal(Gcal.event);
+  })
+
+
+
   $scope.userId = $rootScope.currentUser.id;
   $scope.stack = [];
   // get list of saved books aka 'stack' using getStack method from BookChoices factory
