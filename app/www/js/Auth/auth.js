@@ -1,28 +1,25 @@
 "use strict";
 angular.module("starter.auth", [])
 
-.controller("AuthCtrl", function ($timeout, $scope, $rootScope, $location, $window, Auth){
+.controller("AuthCtrl", function (fetchEvents, $timeout, $scope, $rootScope, $location, $window, Auth){
   $scope.user = {};
 
-   $rootScope.currentUser = {
-          username: "Karianne",
-          id: "123445"
-  };
-
   $scope.signin = function () {
-    console.log("sign in clicked")
+    console.log("sign in clicked");
+    console.log($scope.user.zip)
     Auth.signin()
       .then(function (authResult) {
         console.log("Signed in", authResult);
+        $rootScope.currentUser = authResult;
+        console.log("current zip code "+$scope.user.zip)
+        // fetchEvents.zip = $scope.user.zip;
 
-        console.log("current user", $rootScope.currentUser)
-        console.log("triggering change to main");
         $timeout(function () {
           $location.path("/app/main");
           }, 0);
 
-        console.log($location.path());
-        console.log("route to main noooowww")
+        $scope.user = {};
+        console.log("user zip scope "+$scope.user.zip)
       })
       // .catch(function (error) {
       //   console.log(error);

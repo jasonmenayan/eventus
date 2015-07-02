@@ -5,8 +5,16 @@
       <img src="../img/logo.png">
   </div>
 
-    <form ng-submit="signin()">
+    <form ng-submit="signin()" class="css-form">
       <div class="list">
+        <div class="row">
+          <div class="col-center col-50 col-center">
+            <label class="item item-input">
+              <span class="input-label">Zip Code</span>
+              <input type="text" ng-model="user.zip" required>
+            </label>
+          </div>
+        </div>
         <label class="item">
           <button class="button button-block button-positive" type="submit">Sign In With Google</button>
         </label>
