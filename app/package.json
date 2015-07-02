@@ -1,7 +1,7 @@
 {
-  "name": "page100",
+  "name": "Eventus",
   "version": "1.0.0",
-  "description": "Book matching app",
+  "description": "Events",
   "main": "server/index.js",
   "repository": "https://github.com/Opportunistic-House-sitter/page100.git",
   "author": "Opportunistic House-sitters",
