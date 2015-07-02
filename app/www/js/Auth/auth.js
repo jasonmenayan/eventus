@@ -1,7 +1,7 @@
 "use strict";
 angular.module("starter.auth", [])
 
-.controller("AuthCtrl", function (fetchEvents, $timeout, $scope, $rootScope, $location, $window, Auth){
+.controller("AuthCtrl", function (FetchEvents, $timeout, $scope, $rootScope, $location, $window, Auth){
   $scope.user = {};
 
   $scope.signin = function () {
@@ -9,17 +9,17 @@ angular.module("starter.auth", [])
     console.log($scope.user.zip)
     Auth.signin()
       .then(function (authResult) {
-        console.log("Signed in", authResult);
+
         $rootScope.currentUser = authResult;
-        console.log("current zip code "+$scope.user.zip)
-        // fetchEvents.zip = $scope.user.zip;
+
+        FetchEvents.zip = $scope.user.zip;
 
         $timeout(function () {
           $location.path("/app/main");
           }, 0);
 
         $scope.user = {};
-        console.log("user zip scope "+$scope.user.zip)
+
       })
       // .catch(function (error) {
       //   console.log(error);
