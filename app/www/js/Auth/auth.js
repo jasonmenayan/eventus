@@ -1,7 +1,7 @@
 "use strict";
 angular.module("starter.auth", [])
 
-.controller("AuthCtrl", function ($scope, Auth, $rootScope, $location, $window){
+.controller("AuthCtrl", function ($scope, $rootScope, $location, $window, Auth){
   $scope.user = {};
 
   $scope.signin = function () {
@@ -9,6 +9,7 @@ angular.module("starter.auth", [])
       .then(function (authResult) {
         console.log(authResult);
         $rootScope.currentUser = authResult;
+        console.log($rootScope.currentUser)
         $location.path("/app/main");
       })
       // .catch(function (error) {
@@ -50,8 +51,8 @@ angular.module("starter.auth", [])
 
   // signout by removing token from localStorage and removing current user in $rootScope
   $scope.signout = function () {
-    $window.localStorage.removeItem("com.starter");
     delete $rootScope.currentUser;
+    Auth.signout();
     $location.path("/signin");
   };
 

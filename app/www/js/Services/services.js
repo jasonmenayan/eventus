@@ -12,6 +12,10 @@ angular.module("starter.services", [])
       return gapi.auth.authorize(config);    
     };
 
+    var signout = function() {
+      return  gapi.auth.signOut();
+    };
+
     var checkAuth = function() {
       var config = {
         'client_id': '989969156266-814fcdt9cht50r842r0serpo6b6ol6nm',
@@ -54,7 +58,8 @@ angular.module("starter.services", [])
 
     return {
       signin: signin,
-      checkAuth: checkAuth
+      checkAuth: checkAuth,
+      signout: signout
       // refreshUser: refreshUser
     };
   })

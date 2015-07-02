@@ -1,11 +1,11 @@
 {
   "name": "page100",
   "version": "0.0.0",
-  "homepage": "https://github.com/Opportunistic-House-sitter/page100",
+  "homepage": "https://github.com/codeUsLab/eventus",
   "authors": [
-    "Chris <claymanchris@gmail.com>"
+    "codeus"
   ],
-  "description": "A Tinder for Books",
+  "description": "A Tinder for Events",
   "main": "server/index.js",
   "license": "MIT",
   "ignore": [
