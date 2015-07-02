@@ -7,7 +7,7 @@ angular.module("starter.auth", [])
   $scope.signin = function () {
     Auth.signin()
       .then(function (authResult) {
-        console.log(authResult);
+        console.log("Signed in", authResult);
         $rootScope.currentUser = authResult;
         console.log($rootScope.currentUser)
         $location.path("/app/main");
