@@ -1,21 +1,11 @@
 <ion-view>
   <ion-content>
     <h1>Filters</h1>
-    <div class="genre-buttons">
-        <button ng-repeat="genre in genres" type="button" class="button" ng-class="{'button-assertive': isActive(genre.title), 'button-stable': !isActive(genre.title)}" ng-click="addRemoveGenre(genre.title)">
-          {{genre.title}}
+    <div class="category-buttons">
+        <button ng-repeat="(id,catname) in categories" type="button" class="button" ng-class="{'button-assertive': isActive({{id}}), 'button-stable': !isActive({{id}})}" ng-click="addRemoveCategory({{id}}, {{catname}})">
+          {{value}}
         </button>
       </div>
-    		<!-- <select ng-change="changeFilter()" ng-model="genres.selected" ng-options="genre.title for genre in genres">
-            </select> -->
-		<!-- <label class="item item-input item-select">
-    		<div class="input label">
-    		Popular Lists
-    		</div>
-    		<select>
-    			<option selected ng-repeat="list in popularLists">{{ list.title }}</option>
-    		</select>
-		</label> -->
 	</div>
   </ion-content>
 </ion-view>

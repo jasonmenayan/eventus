@@ -1,10 +1,6 @@
 "use strict";
 angular.module('starter')
 
-  .factory('EventCards', function() {
-    return {eventArray = [];}
-  })
-
   .factory('StackFilters', function (FetchEvents, EventCards) {
 
     // get new batch (page) of events
