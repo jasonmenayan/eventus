@@ -26,8 +26,10 @@ angular.module('starter')
     //   miwithin: 5, // # of miles within ZIP code
     //   categories: '101,103,105', // comma-delimited IDs
     // }
+    FetchEvents.zip = null;
 
     FetchEvents.getEvents = function(parameters, page) {
+      parameters.zip = parameters.zip || FetchEvents.zip;
       return FetchEvents.getLatLongFromZip(parameters.zip)
       .then(function(results) {
         var mi = parameters.miwithin;
@@ -36,15 +38,15 @@ angular.module('starter')
 
         var lat = results.data.results[0].geometry.location.lat;
         var lng = results.data.results[0].geometry.location.lng;
-        var url = eburlbase + 'location.within=' + mi + 'mi&location.latitude=' + lat + 
-        '&location.longitude=' + lng + '&start_date.keyword=this_month&popular=on&categories=' + 
+        var url = eburlbase + 'location.within=' + mi + 'mi&location.latitude=' + lat +
+        '&location.longitude=' + lng + '&start_date.keyword=this_month&popular=on&categories=' +
         cats + '&token=' + ebtken + '&expand=venue' + '&page=' + page;
         return $http.get(url)
           .then(function(results) {
             FetchEvents.events = results.data.events;
           })
       });
-    };    
+    };
 
     return FetchEvents;
 
