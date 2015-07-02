@@ -7,19 +7,14 @@ angular.module('starter')
     var llurlbase = 'http://maps.googleapis.com/maps/api/geocode/json?address=';
     var eburlbase = 'https://www.eventbriteapi.com/v3/events/search/?';
     var ebtken = 'MKFL4P7OGOVRM3P7IV6L';
+    var fetchEvents = {};
 
     fetchEvents.getLatLongFromZip = function(zip) {
       var url = llurlbase + zip;
-      var lat = '';
-      var lng = '';
       return $http.get(url)
       .success(function (results, status) {
-        if (status === 'OK') {
-          lat = results[0].geometry.location.lat;
-          lng = results[0].geometry.location.lng;
-        }
-        return {lat: lat, lng: lng};
-      }).
+        return results;
+      })
       .error(function (results, status) {
         console.log('Lat/lng not fetched. Error: ', status);
       });
@@ -35,30 +30,28 @@ angular.module('starter')
     fetchEvents.getEvents = function (parameters) {
       var mi = parameters.miwithin;
       var cats = parameters.categories;
-      var lat = '';
-      var lng = '';
       var eventArr = [];
 
-      getLatLongFromZip(parameters.zip)
-        .then(function (latlong) {
-          lat = latlong.lat;
-          lng = latlong.lng;
-          var url = eburlbase + 'location.within=' + mi + 'mi&location.latitude=' + lat + '&location.longitude=' + lng + '&start_date.keyword=this_month&popular=on&categories=' + cats + '&token=' + ebtken + '&expand=venue';
+      fetchEvents.getLatLongFromZip(parameters.zip)
+        .then(function (results) {
+        var lat = results.data.results[0].geometry.location.lat;
+        var lng = results.data.results[0].geometry.location.lng;
+        var urlstem = eburlbase + 'location.within=' + mi + 'mi&location.latitude=' + lat + '&location.longitude=' + lng + '&start_date.keyword=this_month&popular=on&categories=' + cats + '&token=' + ebtken + '&expand=venue';
 
-          var retrieveEvents = function(url) {
-            $http.get(url)
-            .then(function (results) {
-              eventArr.concat(results.events);
-              if (results.pagination.page_number !== results.pagination.page_count) {
-                var newUrl = url + '&page=' + (+results.pagination.page_number + 1);
-                retrieveEvents(newUrl);
-              } else {
-                return eventArr;
-              }
-            })
-          };
+        var retrieveEvents = function(url) {
+          $http.get(url)
+          .then(function (results) {
+            eventArr = eventArr.concat(results.data.events);
+            if (results.data.pagination.page_number <= results.data.pagination.page_count) {
+              var newUrl = urlstem + '&page=' + (+results.data.pagination.page_number + 1);
+              retrieveEvents(newUrl);
+            } else {
+              return eventArr;
+            }
+          })
+        };
+      retrieveEvents(urlstem);
       });  
-      retrieveEvents(url);
     };
     
     return fetchEvents;
