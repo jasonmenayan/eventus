@@ -72,6 +72,7 @@ angular.module("starter.services", [])
 
       var Gevent = {
         calendarId: 'primary',
+        summary: ebObject.name.text,
         source: {
           title: ebObject.name.text,
           url: ebObject.resource_uri
@@ -90,6 +91,7 @@ angular.module("starter.services", [])
         gapi.client.calendar.events.insert(event)
         .execute(function(response) {
           console.log(response);
+          console.log('Event created: '+event.htmlLink);
         })
       })
 
