@@ -1,16 +1,28 @@
 "use strict";
 angular.module("starter.auth", [])
 
-.controller("AuthCtrl", function ($scope, $rootScope, $location, $window, Auth){
+.controller("AuthCtrl", function ($timeout, $scope, $rootScope, $location, $window, Auth){
   $scope.user = {};
 
+   $rootScope.currentUser = {
+          username: "Karianne",
+          id: "123445"
+  };
+
   $scope.signin = function () {
+    console.log("sign in clicked")
     Auth.signin()
       .then(function (authResult) {
         console.log("Signed in", authResult);
-        $rootScope.currentUser = authResult;
-        console.log($rootScope.currentUser)
-        $location.path("/app/main");
+
+        console.log("current user", $rootScope.currentUser)
+        console.log("triggering change to main");
+        $timeout(function () {
+          $location.path("/app/main");
+          }, 0);
+
+        console.log($location.path());
+        console.log("route to main noooowww")
       })
       // .catch(function (error) {
       //   console.log(error);
