@@ -65,14 +65,14 @@ angular.module("starter", [
       }
     })
 
-    .state("signup", {
-      url: "/signup",
-      templateUrl: "templates/signup.html",
-      controller: "AuthCtrl",
-      data: {
-        requireLogin: false
-      }
-    })
+    // .state("signup", {
+    //   url: "/signup",
+    //   templateUrl: "templates/signup.html",
+    //   controller: "AuthCtrl",
+    //   data: {
+    //     requireLogin: false
+    //   }
+    // })
 
     .state("app.main", {
       url: "/main",
@@ -150,6 +150,7 @@ angular.module("starter", [
   // if it's not valid, we then redirect back to signin/signup
   $rootScope.$on("$stateChangeStart", function (event, toState) {
     var requireLogin = toState.data.requireLogin;
+    console.log("state data ", toState.data);
       if(requireLogin && !$rootScope.currentUser){
         // if(localStorage.getItem("com.starter")) {
         //   Auth.refreshUser(function () { // Inject Auth when this is used
