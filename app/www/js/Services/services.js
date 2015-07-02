@@ -9,7 +9,7 @@ angular.module("starter.services", [])
         'scope': 'https://www.googleapis.com/auth/calendar',
         'immediate': false
       };
-      return gapi.auth.authorize(config);    
+      return gapi.auth.authorize(config);
     };
 
     var signout = function() {
@@ -22,7 +22,7 @@ angular.module("starter.services", [])
         'scope': 'https://www.googleapis.com/auth/calendar',
         'immediate': true
       };
-      return gapi.auth.authorize(config);   
+      return gapi.auth.authorize(config);
     };
     // post potential user to server which will determine if legit
     // var signin = function (user) {
@@ -63,15 +63,27 @@ angular.module("starter.services", [])
       // refreshUser: refreshUser
     };
   })
-  
+
   .factory('Gcal', function(Auth) {
-    var event = {
-      calendarId: 'primary',
-      description: 'group meditation',
-      start: {dateTime: '2015-07-04T10:00:00Z'},
-      end: {dateTime: '2015-07-04T11:00:00Z'},
-      organizer: {displayName: 'Hack Reactor Tea Party'}
-    };
+    var EtoG = function(ebObject) {
+
+      var address = ebObject.venue.address;
+      var fullAddress = address.address_1+" "+address.city+" "+address.region+" "+address.postal_code+" "+address.country;
+
+      var Gevent = {
+        calendarId: 'primary',
+        source: {
+          title: ebObject.name.text,
+          url: ebObject.resource_uri
+        },
+        start: {dateTime: ebObject.start.utc},
+        end: {dateTime: ebObject.end.utc},
+        location: fullAddress,
+        description: ebObject.description.text,
+        htmlLink: ebObject.url
+      }
+      return Gevent;
+    }
     var sendToGcal = function(event) {
       gapi.client.load('calendar', 'v3')
       .then(function() {
@@ -80,9 +92,10 @@ angular.module("starter.services", [])
           console.log(response);
         })
       })
-      
+
     };
     return {
+      EtoG: EtoG,
       sendToGcal: sendToGcal,
       event: event
     };
