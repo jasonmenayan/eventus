@@ -2,7 +2,11 @@
 
 angular.module("starter.cards", [])
 
-.controller("CardsCtrl", function($scope, filterChoices, BookChoices, $ionicSideMenuDelegate, $rootScope){
+.controller("CardsCtrl", function($scope, fetchEvents, filterChoices, BookChoices, $ionicSideMenuDelegate, $rootScope){
+
+  var params = {zip: 94114, miwithin: 5, categories: '101,103'};
+  fetchEvents.getEvents(params);
+
   //prevent side menu from dragging out with cards
   $ionicSideMenuDelegate.canDragContent(false);
   //repulls books every time the filters change

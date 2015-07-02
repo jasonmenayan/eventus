@@ -36,7 +36,13 @@ angular.module("starter", [
 .config(["$stateProvider", "$urlRouterProvider", "$httpProvider", function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
   $urlRouterProvider.otherwise("/signin");
-  $httpProvider.interceptors.push("AttachTokens");
+  // $httpProvider.interceptors.push("AttachTokens");
+  // to avoid CORS conflicts
+  $httpProvider.defaults.useXDomain = true;
+  // $httpProvider.defaults.withCredentials = true;
+  delete $httpProvider.defaults.headers.common["X-Requested-With"];
+  $httpProvider.defaults.headers.common["Accept"] = "application/json";
+  $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
 
   // ui-router lets us use states instead of routes. states allow us to create more complex views.
   $stateProvider
