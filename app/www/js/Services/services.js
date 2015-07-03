@@ -139,7 +139,23 @@ angular.module("starter.services", [])
     };
   })
 
-  
+  .factory("EventChoices", function(){
+    var myStack = [];
+
+    var addToStack = function (event) {
+      myStack.push(event);
+      console.log('added to stack', event);
+    };
+
+    var getStack = function () {
+      return myStack;
+    };
+    
+    return {
+      addToStack: addToStack,
+      getStack: getStack
+    };
+  })
   // .factory("BookChoices", function($http, SERVER){
   //   // get books that have not been seen already
   //   var getBooks = function(userId, count) {
@@ -167,10 +183,10 @@ angular.module("starter.services", [])
   //       method: "GET",
   //       url: SERVER.url + "/user/" + id + "/stack"
   //     })
-  //     .then(function (resp){
   //       return resp.data;
   //     });
-  //   };
+  //   };   .then(function (resp){
+   
 
   //   // delete a book from a user's stack of saved books
   //   var removeFromStack = function (id, book) {

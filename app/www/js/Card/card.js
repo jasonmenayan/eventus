@@ -2,7 +2,7 @@
 
 angular.module("starter.cards", [])
 
-.controller("CardsCtrl", function($scope, FetchEvents, filterChoices, BookChoices, $ionicSideMenuDelegate, $rootScope){
+.controller("CardsCtrl", function($scope, $ionicSideMenuDelegate, $rootScope, FetchEvents, filterChoices, EventChoices){
 
   //prevent side menu from dragging out with cards
   $ionicSideMenuDelegate.canDragContent(false);
@@ -11,18 +11,18 @@ angular.module("starter.cards", [])
     return filterChoices.genresSelected.length;
   }, function(){
     console.log("change in filter was noticed");
-    $scope.getBooks($scope.userId, 10);
+    $scope.getEvents($scope.userId, 10);
   });
 
   // retrieves books from the database
-  $scope.getBooks = function(userId, count){
+  $scope.getEvents = function(userId, count){
     var params = {zip: 94114, miwithin: 5, categories: '101,103'};
     FetchEvents.getEvents(params, 1)
       .then(function(results){
-        console.log(FetchEvents.events)
+        console.log(FetchEvents.events);
         $scope.cards = FetchEvents.events;
         $scope.currentCard = $scope.cards[$scope.cards.length - 1];
-      })
+      });
 
     // BookChoices.getBooks(userId, count)
     //   .then(function(books){
@@ -31,19 +31,21 @@ angular.module("starter.cards", [])
     //   });
   };
 
-  $scope.userId = '000000'//$rootScope.currentUser.id;
+  $scope.userId = '000000'//$rootScope.currentUser.id;  //delete this line
 
   // Handles book swiping
   $scope.cardSwipedLeft = function(index) {
     $scope.clicked = false;
-   console.log("Left swipe", index);
+    $scope.cardDestroyed(index);
+    console.log("Left swipe", index);
  };
 
  // Adds card to stack when user swipes right
   $scope.cardSwipedRight = function(index) {
     $scope.clicked = false;
     console.log("Right swipe", index);
-    BookChoices.addToStack($scope.userId, $scope.cards[index]);
+    EventChoices.addToStack($scope.cards[index]);
+    $scope.cardDestroyed(index);
   };
 
   $scope.cardDestroyed = function(index) {
