@@ -9,12 +9,14 @@
           <div class="col col-750">
             <div class="stackInfo">
           		<span ng-click="removeFromStack($index)" class="button button-icon ion-minus-circled"></span>
-          		<h2>{{ event.name.text }}</h2>
-          		<p>{{ event.start.local }}</p>
-              <p>{{card.venue.name}}<p>
-              <p>{{card.venue.address.address_1}} {{card.venue.address.city}} {{card.venue.address.region}}</p>
-              <p>{{card.description.text}}</p>
-              <a class="button button-small button-positive" ng-click="addToGcal(event)">Add to calendar</a>
+          		<h2><strong>{{ event.name.text }}</strong></h2>
+          		<p>Starts: {{ event.start.local | date : 'EEE MMMM dd, yyyy @ h:mma'}} :: 
+              Ends: {{ event.end.local | date : 'h:mma'}}</p>
+              <p>At: {{event.venue.name}}<p>
+              <p>{{event.venue.address.address_1}} {{event.venue.address.city}} {{event.venue.address.region}}</p>
+<!--          <p>{{event.description.text}}</p> -->
+              <a class="button button-small button-positive" ng-show="!event.added" ng-click="addToGcal(event); event.added = true;">Add to calendar</a>
+              <a class="button button-small button-royal" ng-show="event.added" ng-click="addToGcal(event)">Added to Calendar!</a>
           	</div>
           </div>
       </div>

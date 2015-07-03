@@ -2,13 +2,13 @@
 
 angular.module("starter.cards", [])
 
-.controller("CardsCtrl", function($scope, $ionicSideMenuDelegate, $rootScope, FetchEvents, filterChoices, EventChoices){
+.controller("CardsCtrl", function($scope, $ionicSideMenuDelegate, $rootScope, StackFilters, FetchEvents, EventChoices){
 
   //prevent side menu from dragging out with cards
   $ionicSideMenuDelegate.canDragContent(false);
   //repulls books every time the filters change
   $scope.$watch(function(){
-    return filterChoices.genresSelected.length;
+    return StackFilters.categoriesSelected.length;
   }, function(){
     console.log("change in filter was noticed");
     $scope.getEvents($scope.userId, 10);
@@ -16,7 +16,7 @@ angular.module("starter.cards", [])
 
   // retrieves books from the database
   $scope.getEvents = function(userId, count){
-    var params = {zip: 94114, miwithin: 5, categories: '101,103'};
+    var params = {zip: 94114, miwithin: 10, categories: '101,103,105'};
     FetchEvents.getEvents(params, 1)
       .then(function(results){
         console.log(FetchEvents.events);
@@ -81,4 +81,21 @@ angular.module("starter.cards", [])
     $scope.cardSwipedLeft(index);
     $scope.cardDestroyed(index);
   };
+
+  $scope.truncateDescription = function (description){
+   if(description.length > 800) {
+     var stop = description.indexOf(' ', 800);
+     if(stop>50) {
+       var cutoff = 850;
+     } else {
+       var cutoff = 800+stop
+     }
+     var truncated = description.slice(0,cutoff);
+     return truncated+'...'
+   } else {
+     return description;
+   }
+  }
+
+
 });

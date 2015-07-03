@@ -94,14 +94,14 @@ angular.module("starter", [
       }
     })
 
-    .state("app.accountSettings", {
-      url: "/accountSettings",
-      views: {
-        "menuContent": {
-          templateUrl: "templates/accountSettings.html"
-        }
-      }
-    })
+    // .state("app.accountSettings", {
+    //   url: "/accountSettings",
+    //   views: {
+    //     "menuContent": {
+    //       templateUrl: "templates/accountSettings.html"
+    //     }
+    //   }
+    // })
 
     .state("app.stack", {
       url: "/stack",

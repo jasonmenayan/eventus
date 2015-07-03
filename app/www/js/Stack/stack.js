@@ -95,11 +95,9 @@ angular.module("starter.stack", [])
 
   // remove book at index from stack
   $scope.removeFromStack = function( index ){
-    BookChoices.removeFromStack($scope.userId, $scope.stack[index])
-      .then(function(){
-        $scope.getStack($scope.userId);
-      });
+    EventChoices.removeFromStack(index);
+    $scope.getStack();
   };
 
-  $scope.getStack($scope.userId);
+  $scope.getStack();
 });
