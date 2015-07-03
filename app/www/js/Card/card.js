@@ -31,7 +31,7 @@ angular.module("starter.cards", [])
     //   });
   };
 
-  $scope.userId = $rootScope.currentUser.id;
+  $scope.userId = '000000'//$rootScope.currentUser.id;
 
   // Handles book swiping
   $scope.cardSwipedLeft = function(index) {

@@ -5,12 +5,12 @@
         <td-card id="td-card" ontouchstart="this.classList.toggle('hover');" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
         on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" ng-click="showText()">
           
-          <div class=" text front animate-show" ng-hide="clicked">
+          <!-- <div class=" text front animate-show" ng-hide="clicked">
             {{card.name.text}}
-            <!-- <div class="no-text overlayBox"><div class="noBox boxed">Trash</div></div>
+            <div class="no-text overlayBox"><div class="noBox boxed">Trash</div></div>
             <img ng-src="{{card.logo.url}}">
-            <div --> class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Save</div></div>
-          </div>
+            <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Save</div></div>
+          </div> -->
 
           <div class=" image front animate-show" ng-hide="clicked">
             <div class="no-text overlayBox"><div class="noBox boxed">Trash</div></div>
