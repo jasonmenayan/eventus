@@ -3,9 +3,23 @@
     <h1>Filters</h1>
     <div class="category-buttons">
         <button ng-repeat="(id,catname) in categories" type="button" class="button" ng-class="{'button-assertive': isActive({{id}}), 'button-stable': !isActive({{id}})}" ng-click="addRemoveCategory({{id}}, {{catname}})">
-          {{value}}
+          {{catname}}
         </button>
-      </div>
+    </div>
+    <h1>ZIP Code</h1>
+    <div>
+	    <form novalidate>
+	    	<input type="text" ng-model="zip"><br>
+	    	Radius (in mi.): 
+	    	<select ng-model="miwithin" convert-to-number>
+				  <option value="1">1</option>
+				  <option value="5">5</option>
+				  <option value="10">10</option>
+				  <option value="25">25</option>
+				</select><br><br>
+				<button ng-click="setParamsAndFetch()">Submit</button>
+	    </form>
+    </div>
 	</div>
   </ion-content>
 </ion-view>

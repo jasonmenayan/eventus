@@ -2,7 +2,7 @@
 
 angular.module("starter.filters", [])
 
-.controller("FiltersCtrl", function($scope, $rootScope, StackFilters) {
+.controller("FiltersCtrl", function($scope, $rootScope, StackFilters, FetchEvents) {
 
   $scope.categories = [{103:'Music'},{101:'Business'},{110:'Food & Drink'},{113:'Community'},{105:'Arts'},{104:'Film & Media'},{108:'Sports & Fitness'},{107:'Health'},{102:'Science & Tech'},{109:'Travel & Outdoor'},{111:'Charity & Causes'},{114:'Spirituality'},{115:'Family & Education'},{116:'Holiday'},{112:'Government'},{106:'Fashion'},{117:'Home & Lifestyle'},{118:'Auto, Boat & Air'},{119:'Hobbies'},{199:'Other'}];
   $scope.filteredCategories = [];
@@ -26,23 +26,27 @@ angular.module("starter.filters", [])
     StackFilters.categoriesSelected = $scope.filteredCategories;
   };
 
-  $scope.isActive = function(category) {
-    return $scope.filteredCategories.indexOf(category) > -1;
-  };
-
-  $scope.checkFilter = function(){
-    userInfo.getUser(userId)
-    .then(function(result){
-      if(result.filterPreferences[0]){
-        $scope.filteredCategories = result.filterPreferences;
+  $scope.isActive = function(id) {
+    var index = -1;
+    for (var i=0; i < $scope.filteredCategories; i++) {
+      if (Object.keys($scope.filteredCategories[i]) === id) {
+        index = i;
       }
-    });
+    }
+    return index > -1;
   };
 
-  $scope.checkFilter();
+  $scope.params = {};
 
-  $scope.changeFilter = function(){
-    filterChoices.changeFilter(userId, $scope.filteredCategories);
+  $scope.setParamsAndFetch = function(){
+    $scope.params.zip = $scope.zip;
+    $scope.params.miwithin = $scope.miwithin;
+    var catsTemp = [];
+    for (var i=0; i < $scope.filteredCategories; i++) {
+      catsTemp = catsTemp.concat(Object.keys($scope.filteredCategories[i]));
+    }
+    $scope.params.categories = catsTemp.join(',');
+    FetchEvents.getEvents(params, 1);
   };
 
 });
