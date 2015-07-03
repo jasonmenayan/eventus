@@ -1,2 +1,6 @@
 - see why swiped-right entries aren't added to stack (clicking green button *does* add)
-- get API key (or use existing one) for app/www/js/Services/eventbriteapi.js: getLatLongFromZip
+
+- fetch first 50 events and return to controller, and then fetch the rest recursively
+
+- myStack storage in factory
+- 
