@@ -104,40 +104,40 @@ angular.module("starter.services", [])
 
   })
 
-  .factory("Account", function(){
-    var getUsername = function(){
-      return $http({
-        method: "GET",
-        url: "/users"
-      })
-      .then(function(resp){
-        return resp.data;
-      });
-    };
+  // .factory("Account", function(){
+  //   var getUsername = function(){
+  //     return $http({
+  //       method: "GET",
+  //       url: "/users"
+  //     })
+  //     .then(function(resp){
+  //       return resp.data;
+  //     });
+  //   };
 
-    var changeUsername = function(user){
-      return $http({
-        method: "PUT",
-        url: "/users",
-        data: user
-      }).then(function(resp){
-        return resp.data;
-      });
-    };
+  //   var changeUsername = function(user){
+  //     return $http({
+  //       method: "PUT",
+  //       url: "/users",
+  //       data: user
+  //     }).then(function(resp){
+  //       return resp.data;
+  //     });
+  //   };
 
-    // var changePassword = function(user){
-    // };
+  //   // var changePassword = function(user){
+  //   // };
 
-    // var changeEmail = function(user){
-    // };
+  //   // var changeEmail = function(user){
+  //   // };
 
-    return {
-      getUsername: getUsername,
-      changeUsername: changeUsername,
-      changePassword: changePassword,
-      changeEmail: changeEmail
-    };
-  })
+  //   return {
+  //     getUsername: getUsername,
+  //     changeUsername: changeUsername,
+  //     changePassword: changePassword,
+  //     changeEmail: changeEmail
+  //   };
+  // })
 
   .factory("EventChoices", function(){
     var myStack = [];
@@ -150,10 +150,16 @@ angular.module("starter.services", [])
     var getStack = function () {
       return myStack;
     };
+
+    // delete a book from a user's stack of saved books
+    var removeFromStack = function (index) {
+      myStack.splice(index, 1);
+    };
     
     return {
       addToStack: addToStack,
-      getStack: getStack
+      getStack: getStack,
+      removeFromStack: removeFromStack
     };
   })
   // .factory("BookChoices", function($http, SERVER){
@@ -188,14 +194,7 @@ angular.module("starter.services", [])
   //   };   .then(function (resp){
    
 
-  //   // delete a book from a user's stack of saved books
-  //   var removeFromStack = function (id, book) {
-  //     return $http({
-  //       method: "POST",
-  //       url: SERVER.url + "/user/" + id + "/removebook",
-  //       data: book
-  //     });
-  //   };
+
 
   //   return {
   //     getBooks: getBooks,
@@ -205,36 +204,36 @@ angular.module("starter.services", [])
   //   };
   // })
 
-  .factory("userInfo", function($http, SERVER){
-    var getUser = function (id) {
-      return $http({
-        method: "GET",
-        url: SERVER.url + "/user/" + id + "/userInfo"
-      })
-      .then(function(resp){
-        return resp.data;
-      });
-    };
+  // .factory("userInfo", function($http, SERVER){
+  //   var getUser = function (id) {
+  //     return $http({
+  //       method: "GET",
+  //       url: SERVER.url + "/user/" + id + "/userInfo"
+  //     })
+  //     .then(function(resp){
+  //       return resp.data;
+  //     });
+  //   };
 
-    return {
-      getUser: getUser
-    };
-  })
+  //   return {
+  //     getUser: getUser
+  //   };
+  // })
 
   // updates the user's filters
-  .factory("filterChoices", function($http, SERVER){
-    var changeFilter = function(id, genres){
-      return $http({
-        method: "POST",
-        url: SERVER.url + "/user/" + id + "/filterpreferences",
-        data: genres
-      });
-    };
+  // .factory("filterChoices", function($http, SERVER){
+  //   var changeFilter = function(id, genres){
+  //     return $http({
+  //       method: "POST",
+  //       url: SERVER.url + "/user/" + id + "/filterpreferences",
+  //       data: genres
+  //     });
+  //   };
 
-    var genresSelected = [{title: "Poetry"}, {title: "Classic"}, {title: "Modernism"}, {title: "Fiction"}, {title: "Fantasy"}, {title: "Sci-fi"}, {title: "Education"}, {title: "Drama"}, {title: "Mystery"}, {title: "Horror"}, {title: "Historical Fiction"}, {title: "Non-fiction"}];
+  //   var genresSelected = [{title: "Poetry"}, {title: "Classic"}, {title: "Modernism"}, {title: "Fiction"}, {title: "Fantasy"}, {title: "Sci-fi"}, {title: "Education"}, {title: "Drama"}, {title: "Mystery"}, {title: "Horror"}, {title: "Historical Fiction"}, {title: "Non-fiction"}];
 
-    return {
-      changeFilter: changeFilter,
-      genresSelected: genresSelected
-    };
-  });
+  //   return {
+  //     changeFilter: changeFilter,
+  //     genresSelected: genresSelected
+  //   };
+  // });

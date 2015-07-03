@@ -1,5 +1,5 @@
 "use strict";
-angular.module('starter')
+angular.module('starter.services')
 
   .factory("FetchEvents", ['$http', function($http){
     // post potential user to server which will determine if legit
