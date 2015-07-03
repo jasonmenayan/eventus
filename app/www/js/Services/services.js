@@ -75,7 +75,7 @@ angular.module("starter.services", [])
         summary: ebObject.name.text,
         source: {
           title: ebObject.name.text,
-          url: ebObject.resource_uri
+          url: ebObject.url
         },
         start: {dateTime: ebObject.start.utc},
         end: {dateTime: ebObject.end.utc},
@@ -155,7 +155,7 @@ angular.module("starter.services", [])
     var removeFromStack = function (index) {
       myStack.splice(index, 1);
     };
-    
+
     return {
       addToStack: addToStack,
       getStack: getStack,
@@ -192,7 +192,7 @@ angular.module("starter.services", [])
   //       return resp.data;
   //     });
   //   };   .then(function (resp){
-   
+
 
 
 
