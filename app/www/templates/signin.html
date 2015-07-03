@@ -6,19 +6,21 @@
   </div>
 
     <form ng-submit="signin()" class="css-form">
-      <div class="list">
+      <!-- <div class="list"> -->
         <div class="row">
-          <div class="col-center col-50 col-center">
+          <div class="col"></div>
+          <div class="col">
             <label class="item item-input">
               <span class="input-label">Zip Code</span>
               <input type="text" ng-model="user.zip" required>
             </label>
           </div>
+          <div class="col"></div>
         </div>
         <label class="item">
           <button class="button button-block button-positive" type="submit">Sign In With Google</button>
         </label>
-      </div>
+      <!-- </div> -->
     </form>
 
   </ion-content>
