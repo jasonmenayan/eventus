@@ -1,17 +1,20 @@
 <ion-view>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="book in stack track by $index">
+      <ion-item ng-repeat="event in stack track by $index">
         <div class="row">
           <div class="col col-25">
-            <img class="bookCover" ng-src="{{ book.image }}">
+            <img class="bookCover" ng-src="{{ event.logo.url }}">
           </div>
           <div class="col col-750">
             <div class="stackInfo">
           		<span ng-click="removeFromStack($index)" class="button button-icon ion-minus-circled"></span>
-          		<h2>{{ book.title }}</h2>
-          		<p>{{ book.author }}</p>
-              <a class="button button-small button-positive" ng-href="{{ book.amazonLink }}">BUY THIS BOOK</a>
+          		<h2>{{ event.name.text }}</h2>
+          		<p>{{ event.start.local }}</p>
+              <p>{{card.venue.name}}<p>
+              <p>{{card.venue.address.address_1}} {{card.venue.address.city}} {{card.venue.address.region}}</p>
+              <p>{{card.description.text}}</p>
+              <a class="button button-small button-positive" ng-click="addToGcal(event)">Add to calendar</a>
           	</div>
           </div>
       </div>
