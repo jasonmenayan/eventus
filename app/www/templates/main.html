@@ -1,34 +1,73 @@
 <ion-view>
   <ion-pane>
-    <p class="noMoreBooks">No more books left :(</p>
+    <div class="noMoreBooks">
+    <!-- <div class=""> -->
+      <div class="row">
+        <div class="col col-center">
+          <h2>Fetching Events</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-center">
+          <img src="../img/panda.gif">
+        </div>
+      </div>
+    </div>
       <td-cards>
         <td-card id="td-card" ontouchstart="this.classList.toggle('hover');" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
         on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" ng-click="showText()">
-          
+
           <!-- <div class=" text front animate-show" ng-hide="clicked">
             {{card.name.text}}
             <div class="no-text overlayBox"><div class="noBox boxed">Trash</div></div>
             <img ng-src="{{card.logo.url}}">
             <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Save</div></div>
           </div> -->
+          <div class="list card">
+            <div class="image front animate-show" ng-hide="clicked">
+              <div class="item item-avatar">
+                <h2>{{card.name.text}}</h2>
+                <p>{{ card.start.local | date : 'EEE MMMM dd, yyyy @ h:mma'}}</p>
+              </div>
+              <div class="no-text overlayBox"><div class="noBox boxed">Trash</div></div>
+              <img ng-src="{{card.logo.url}}">
+              <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Save</div></div>
+              <div class="item item-avatar">
+                <h2>{{card.venue.name}} </h2>
+                <h2>{{card.venue.address.address_1}} {{card.venue.address.city}}</h2>
+              </div>
+            </div>
+          </div>
+<!--
+          <p>Starts: {{ event.start.local | date : 'EEE MMMM dd, yyyy @ h:mma'}} ::
+              Ends: {{ event.end.local | date : 'h:mma'}}</p> -->
 
-          <div class=" image front animate-show" ng-hide="clicked">
-            <div class="no-text overlayBox"><div class="noBox boxed">Trash</div></div>
-            <img ng-src="{{card.logo.url}}">
+          <div class="list card">
+            <div class="image back animate-show" ng-show="clicked">
+            <div class ="no-text overlayBox"><div class="noBox boxed">Trash</div></div>
+            <div class="box-sampletext">
+              <div class="item item-avatar">
+                <div class="detailed name start header">
+                  <h2 class="align-left">
+                    <a href="{{card.url}}" target="_blank">{{card.name.text}}</a>
+                  </h2>
+                  <h2 class="align-right">{{ card.start.local | date : 'EEE MMMM dd, yyyy @ h:mma'}}</h2>
+                  <div class="header">
+                    <h3 class="detailed venue-name align-left">{{card.venue.name}}</h3>
+                    <h3 class="detailed venue-address align-right">{{card.venue.address.address_1}} {{card.venue.address.city}} {{card.venue.address.region}}</h3>
+                  </div>
+              </div>
+              <div class="item item-body">
+                <div class="detailed description">{{card.description.text}}</div>
+              </div>
+            </div>
             <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Save</div></div>
+            </div>
           </div>
 
-          <div class="image back animate-show" ng-show="clicked">
-          <div class ="no-text overlayBox"><div class="noBox boxed">Trash</div></div>
-          <div class="box-sampletext">
-            <div class="detailed name">{{card.name.text}}</div>
-            <div class="detailed start">{{card.start.local}}</div>
-            <div class="detailed venue-name">{{card.venue.name}}</div>
-            <div class="detailed venue-address">{{card.venue.address.address_1}} {{card.venue.address.city}} {{card.venue.address.region}}</div>
-            <div class="detailed description">{{card.description.text}}</div>
-          </div>
-          <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Save</div></div>
-          </div>
+
+
+
         </td-card>
         <!-- <div class="item item-thumbnail-left" ng-if="clicked">
           <img ng-src="{{currentCard.image}}">
