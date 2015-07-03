@@ -3,6 +3,7 @@ angular.module("starter.auth", [])
 
 .controller("AuthCtrl", function (FetchEvents, $timeout, $scope, $rootScope, $location, $window, Auth){
   $scope.user = {};
+  $scope.user["pattern"] = /^\d{5}(?:[-\s]\d{4})?$/
 
   $scope.signin = function () {
     console.log("sign in clicked");
