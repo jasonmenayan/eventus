@@ -1,12 +1,11 @@
-# Page100
+# EventUs
 
-> A Tinder for Books
+> A Tinder for Events with Google Calendar Integration
 
 ## Team
 
-  - __Product Owner__: Valerie Liang
-  - __Scrum Master__: Chris Clayman
-  - __Development Team Members__: Jake Seiden, Danielle Blank
+  - __Product Owner__: Jason Menayan
+  - __Scrum Masters__: Sean Connor, Karianne Burns
 
 ## Table of Contents
 
@@ -15,18 +14,15 @@
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
     1. [Tasks](#tasks)
-    1. [ToDos](#todos)
 1. [Team](#team)
 1. [Contributing](#contributing)
 1. [Product Development - User Stories]
 
 ## Usage
 
-> Some usage instructions
+Deploy via Ionic View. Enter your zip code and favorite event categories to swipe through dozens of targeted events. Those you swipe right can be easily added to your Google Calendar!
 
 ## Requirements
-
-- Node 0.10.x
 
 
 ## Development
@@ -41,29 +37,11 @@ npm install
 bower install
 ```
 
-### ToDos
-- Design
-  - Android/ios specific design
-  - Splash pages for login/signup
-
-- User Experience
-  - Notification for "Pulling More Books"
-  - Additional genres
-  - Be able to click on stack view to see additional details about books
-  - Add rating to Main view of book swiping
-
-- Social Sharing
-  - Save and share stacks with other users
-
-- API
-  - Find a way to streamline book pulling process - right now only able to pull partial data from Gutenberg Books API (author, title, genre)
-
-
-
-
 ### Running the App
 
 Check out the [ionic framework docs](http://ionicframework.com/getting-started/) for cli information, and for how to set up mobile emulation.
+
+Alternatively, use [Ionic View](http://view.ionic.io/) to easily deploy on an iOS or Android device.
 
 From within the app directory:
 
@@ -81,11 +59,6 @@ ionic build
 ionic run ios //or
 ionic run android
 ```
-
-### Server
-
-Server is currently set up via Digital Ocean. Please [email Chris](mailto:claymanchris@gmail.com) for login credentials and SSH keys.
-MongoDB is currently set up via MobgoLabs. Please [email Chris](mailto:claymanchris@gmail.com) for login credentials.
 
 
 ## Contributing
