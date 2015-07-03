@@ -4,12 +4,6 @@ angular.module("starter.cards", [])
 
 .controller("CardsCtrl", function($scope, FetchEvents, filterChoices, BookChoices, $ionicSideMenuDelegate, $rootScope){
 
-  var params = {zip: 94114, miwithin: 5, categories: '101,103'};
-  FetchEvents.getEvents(params, 1)
-  .then(function(results){
-    console.log(FetchEvents.events)
-  })
-
   //prevent side menu from dragging out with cards
   $ionicSideMenuDelegate.canDragContent(false);
   //repulls books every time the filters change
@@ -22,14 +16,22 @@ angular.module("starter.cards", [])
 
   // retrieves books from the database
   $scope.getBooks = function(userId, count){
-    BookChoices.getBooks(userId, count)
-      .then(function(books){
-        $scope.cards = books;
+    var params = {zip: 94114, miwithin: 5, categories: '101,103'};
+    FetchEvents.getEvents(params, 1)
+      .then(function(results){
+        console.log(FetchEvents.events)
+        $scope.cards = FetchEvents.events;
         $scope.currentCard = $scope.cards[$scope.cards.length - 1];
-      });
+      })
+
+    // BookChoices.getBooks(userId, count)
+    //   .then(function(books){
+    //     $scope.cards = books;
+    //     $scope.currentCard = $scope.cards[$scope.cards.length - 1];
+    //   });
   };
 
-  $scope.userId = $rootScope.currentUser.id;
+  $scope.userId = '000000'//$rootScope.currentUser.id;
 
   // Handles book swiping
   $scope.cardSwipedLeft = function(index) {

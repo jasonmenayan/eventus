@@ -139,54 +139,55 @@ angular.module("starter.services", [])
     };
   })
 
-  .factory("BookChoices", function($http, SERVER){
-    // get books that have not been seen already
-    var getBooks = function(userId, count) {
-      return $http({
-        method: "GET",
-        url: SERVER.url + "/book/getBooks?count=" + count + "&user=" + userId
-      })
-      .then(function (resp){
-        return resp.data;
-      });
-    };
+  
+  // .factory("BookChoices", function($http, SERVER){
+  //   // get books that have not been seen already
+  //   var getBooks = function(userId, count) {
+  //     return $http({
+  //       method: "GET",
+  //       url: SERVER.url + "/book/getBooks?count=" + count + "&user=" + userId
+  //     })
+  //     .then(function (resp){
+  //       return resp.data;
+  //     });
+  //   };
 
-    // post book to a user's stack
-    var addToStack = function (id, book) {
-      return $http({
-        method: "POST",
-        url: SERVER.url + "/user/" + id + "/addbook",
-        data: book
-      });
-    };
+  //   // post book to a user's stack
+  //   var addToStack = function (id, book) {
+  //     return $http({
+  //       method: "POST",
+  //       url: SERVER.url + "/user/" + id + "/addbook",
+  //       data: book
+  //     });
+  //   };
 
-    // return a user's stack of saved books
-    var getStack = function (id) {
-      return $http({
-        method: "GET",
-        url: SERVER.url + "/user/" + id + "/stack"
-      })
-      .then(function (resp){
-        return resp.data;
-      });
-    };
+  //   // return a user's stack of saved books
+  //   var getStack = function (id) {
+  //     return $http({
+  //       method: "GET",
+  //       url: SERVER.url + "/user/" + id + "/stack"
+  //     })
+  //     .then(function (resp){
+  //       return resp.data;
+  //     });
+  //   };
 
-    // delete a book from a user's stack of saved books
-    var removeFromStack = function (id, book) {
-      return $http({
-        method: "POST",
-        url: SERVER.url + "/user/" + id + "/removebook",
-        data: book
-      });
-    };
+  //   // delete a book from a user's stack of saved books
+  //   var removeFromStack = function (id, book) {
+  //     return $http({
+  //       method: "POST",
+  //       url: SERVER.url + "/user/" + id + "/removebook",
+  //       data: book
+  //     });
+  //   };
 
-    return {
-      getBooks: getBooks,
-      addToStack: addToStack,
-      getStack: getStack,
-      removeFromStack: removeFromStack
-    };
-  })
+  //   return {
+  //     getBooks: getBooks,
+  //     addToStack: addToStack,
+  //     getStack: getStack,
+  //     removeFromStack: removeFromStack
+  //   };
+  // })
 
   .factory("userInfo", function($http, SERVER){
     var getUser = function (id) {
